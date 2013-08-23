@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require 'commander/import'
+require 'terminal-table'
+require 'term/ansicolor'
+
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'mongoload'
+
+HighLine.track_eof = false # Fix for built-in Ruby
+Signal.trap("INT") {} # Suppress backtrace when exiting command
+
+program :version, Mongoload::VERSION
+program :description, 'A command script for loading data into MongoDB'
+
+program :help, 'Author', 'PJ Gray <pj@pj4533.com>'
+program :help_formatter, :compact
+
+default_command :help
+
+require 'mongoload/load'
