@@ -17,6 +17,9 @@ Gem::Specification.new do |s|
   s.add_dependency "terminal-table", "~> 1.4.5"
   s.add_dependency "term-ansicolor", "~> 1.0.7"
   s.add_dependency "mysql2"
+  s.add_dependency "mongo"
+  s.add_dependency "bson_ext"
+  s.add_dependency "bson"
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"
